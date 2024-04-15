@@ -1,0 +1,569 @@
+openapi: "3.0.3"
+info:
+  title: "BookController_class API"
+  description: "BookController_class API"
+  version: "1.0.0"
+servers:
+  - url: "https://BookController_class"
+paths:
+  /api/v1/publisher/update/{id}:
+    put:
+      summary: "PUT api/v1/publisher/update/{id}"
+      operationId: "update"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Publisher"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Publisher"
+  /api/v1/publisher/create:
+    post:
+      summary: "POST api/v1/publisher/create"
+      operationId: "save"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Publisher"
+        required: true
+      responses:
+        "201":
+          description: "Created"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Publisher"
+  /api/v1/publisher/delete/{id}:
+    delete:
+      summary: "DELETE api/v1/publisher/delete/{id}"
+      operationId: "delete"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+  /api/v1/publisher:
+    get:
+      summary: "GET api/v1/publisher"
+      operationId: "findAll"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/PublisherResponse"
+  /api/v1/publisher/{id}:
+    get:
+      summary: "GET api/v1/publisher/{id}"
+      operationId: "getById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/PublisherResponse"
+  /api/v1/category/update/{id}:
+    put:
+      summary: "PUT api/v1/category/update/{id}"
+      operationId: "update"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Category"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Category"
+  /api/v1/category/create:
+    post:
+      summary: "POST api/v1/category/create"
+      operationId: "save"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Category"
+        required: true
+      responses:
+        "201":
+          description: "Created"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Category"
+  /api/v1/category/delete/{id}:
+    delete:
+      summary: "DELETE api/v1/category/delete/{id}"
+      operationId: "delete"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+  /api/v1/category:
+    get:
+      summary: "GET api/v1/category"
+      operationId: "findAll"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Category"
+  /api/v1/category/{id}:
+    get:
+      summary: "GET api/v1/category/{id}"
+      operationId: "getById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Category"
+  /api/v1/author/update/{id}:
+    put:
+      summary: "PUT api/v1/author/update/{id}"
+      operationId: "update"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthorRequest"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/AuthorResponse"
+  /api/v1/author/create:
+    post:
+      summary: "POST api/v1/author/create"
+      operationId: "save"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthorRequest"
+        required: true
+      responses:
+        "201":
+          description: "Created"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/AuthorResponse"
+  /api/v1/author/delete/{id}:
+    delete:
+      summary: "DELETE api/v1/author/delete/{id}"
+      operationId: "delete"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+  /api/v1/author:
+    get:
+      summary: "GET api/v1/author"
+      operationId: "findAll"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/AuthorResponse"
+  /api/v1/author/{id}:
+    get:
+      summary: "GET api/v1/author/{id}"
+      operationId: "getById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/AuthorResponse"
+  /api/v1/borrow/update/{id}:
+    put:
+      summary: "PUT api/v1/borrow/update/{id}"
+      operationId: "update"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BookBorrowingUpdateRequest"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/BookBorrowing"
+  /api/v1/borrow/create:
+    post:
+      summary: "POST api/v1/borrow/create"
+      operationId: "save"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BookBorrowingRequest"
+        required: true
+      responses:
+        "201":
+          description: "Created"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/BookBorrowing"
+  /api/v1/borrow/delete/{id}:
+    delete:
+      summary: "DELETE api/v1/borrow/delete/{id}"
+      operationId: "delete"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+  /api/v1/borrow:
+    get:
+      summary: "GET api/v1/borrow"
+      operationId: "findAll"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/BookBorrowing"
+  /api/v1/borrow/{id}:
+    get:
+      summary: "GET api/v1/borrow/{id}"
+      operationId: "getById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/BookBorrowing"
+  /api/v1/book/update/{id}:
+    put:
+      summary: "PUT api/v1/book/update/{id}"
+      operationId: "update"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Book"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Book"
+  /api/v1/book/create:
+    post:
+      summary: "POST api/v1/book/create"
+      operationId: "save"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Book"
+        required: true
+      responses:
+        "201":
+          description: "Created"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Book"
+  /api/v1/book/delete/{id}:
+    delete:
+      summary: "DELETE api/v1/book/delete/{id}"
+      operationId: "delete"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+  /api/v1/book:
+    get:
+      summary: "GET api/v1/book"
+      operationId: "findAll"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Book"
+  /api/v1/book/{id}:
+    get:
+      summary: "GET api/v1/book/{id}"
+      operationId: "getById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Book"
+components:
+  schemas:
+    Publisher:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        establishmentYear:
+          type: "integer"
+          format: "int32"
+        address:
+          type: "string"
+    PublisherResponse:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        establishmentYear:
+          type: "integer"
+          format: "int32"
+    Category:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        description:
+          type: "string"
+    AuthorRequest:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        birthDate:
+          type: "string"
+          format: "date"
+        country:
+          type: "string"
+    AuthorResponse:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        birthDate:
+          type: "string"
+          format: "date"
+        country:
+          type: "string"
+    BookBorrowingUpdateRequest:
+      type: "object"
+      properties:
+        borrowerName:
+          type: "string"
+        borrowingDate:
+          type: "string"
+          format: "date"
+        returnDate:
+          type: "string"
+          format: "date"
+    Author:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        birthDate:
+          type: "string"
+          format: "date"
+        country:
+          type: "string"
+    Book:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        publicationYear:
+          type: "integer"
+          format: "int32"
+        stock:
+          type: "integer"
+          format: "int32"
+        publisher:
+          $ref: "#/components/schemas/Publisher"
+        author:
+          $ref: "#/components/schemas/Author"
+        bookBorrowings:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/BookBorrowing"
+        categoryList:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Category"
+    BookBorrowing:
+      type: "object"
+      properties:
+        borrowerName:
+          type: "string"
+        borrowingDate:
+          type: "string"
+          format: "date"
+        returnDate:
+          type: "string"
+          format: "date"
+        borrowingBook:
+          $ref: "#/components/schemas/Book"
+    BookForBorrowingRequest:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        publicationYear:
+          type: "integer"
+          format: "int32"
+        stock:
+          type: "integer"
+          format: "int32"
+    BookBorrowingRequest:
+      type: "object"
+      properties:
+        borrowerName:
+          type: "string"
+        borrowerMail:
+          type: "string"
+        borrowingDate:
+          type: "string"
+          format: "date"
+        bookForBorrowingRequest:
+          $ref: "#/components/schemas/BookForBorrowingRequest"
