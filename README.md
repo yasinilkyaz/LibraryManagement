@@ -2,6 +2,9 @@
 
 Bu proje, kütüphane sistemini yönetmek için bir RESTful API sağlar. CRUD operasyonları aracılığıyla kitaplar, yazarlar, kategoriler, yayınevleri ve ödünç alma işlemleri üzerinde işlemler gerçekleştirilebilir.
 
+## UML Diagramı
+![](UMLDiagram.jpg)
+
 ## Proje Yapısı
 
 Proje, Spring Boot ve PostgreSQL veritabanı kullanılarak geliştirilmiştir. Katmanlı mimari kullanılmıştır ve aşağıdaki katmanları içerir:
